@@ -8,12 +8,6 @@ import java.util.stream.Collectors;
 @Service
 public class AnimalDomainServiceImpl implements AnimalDomainService{
 
-    private final AnimalDomainService animalDomainService;
-
-    public AnimalDomainServiceImpl(AnimalDomainService animalDomainService) {
-        this.animalDomainService = animalDomainService;
-    }
-
     @Override
     public List<AnimalDto> getAllAnimals() {
         throw new RuntimeException("Not implemented");
