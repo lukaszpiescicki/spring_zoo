@@ -24,9 +24,8 @@ public class AnimalRestController {
     }
 
     @PostMapping("zoo")
-    public void add(@Valid @RequestBody AnimalDto animalDto){
-        AnimalRequest animalRequest = new AnimalRequest();
-        animalService.addAnimal(animalDto.convertFromRequest(animalRequest));
+    public void add(@Valid @RequestBody AnimalRequest animalRequest){
+        animalService.addAnimal(animalRequest.toAnimalDto());
     }
 
 }
