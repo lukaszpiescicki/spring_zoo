@@ -34,7 +34,7 @@ public class AnimalRequest {
     boolean dangerous;
 
     public AnimalDto toAnimalDto(){
-        return AnimalDto(null, name,species,dateOfBirth,weightKilos,dangerous);
+        return new AnimalDto(null, name,species,dateOfBirth,weightKilos,dangerous);
     }
 
 

@@ -10,9 +10,26 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class AnimalRestControllerExceptionHandler {
 
+    public static final String VALIDATION_ERROR = "VALIDATION_ERROR";
+    public static final String ERROR = "RUNTIME_ERROR";
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
-    public void handleValidationException(MethodArgumentNotValidException methodArgumentNotValidException){
+    ErrorResponse handleValidationException(MethodArgumentNotValidException exception){
+        return ErrorResponse.builder()
+                .code(VALIDATION_ERROR)
+                .message(exception.getMessage())
+                .build();
+
+    }
+
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    ErrorResponse handleRuntimeException(Exception exception){
+        return ErrorResponse.builder()
+                .code(ERROR)
+                .message(exception.getMessage())
+                .build();
 
     }
 }
