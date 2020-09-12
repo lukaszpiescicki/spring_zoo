@@ -10,4 +10,5 @@ public interface AnimalDomainService {
     List<AnimalDto> getAllAnimals();
     void addAnimall(AnimalDto animalDto);
 
+
 }

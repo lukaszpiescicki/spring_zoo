@@ -13,15 +13,8 @@ public class AnimalDto {
     Integer weightKilos;
     boolean dangerous;
 
-    public static AnimalDto convertFromRequest(AnimalRequest animalRequest){
-        return new AnimalDto(
-                animalRequest.getId(),
-                animalRequest.getName(),
-                animalRequest.getSpecies(),
-                animalRequest.getDateOfBirth(),
-                animalRequest.getWeightKilos(),
-                animalRequest.isDangerous()
-        );
+    public static AnimalDto fromAnimal(AnimalRequest animalRequest){
+        return new AnimalDto(animalRequest.getId(), animalRequest.getSpecies(), animalRequest.getName(), animalRequest.getDateOfBirth(), animalRequest.getWeightKilos(), animalRequest.isDangerous());
     }
 
 }

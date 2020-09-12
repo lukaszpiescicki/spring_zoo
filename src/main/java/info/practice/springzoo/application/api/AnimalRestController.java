@@ -18,12 +18,12 @@ public class AnimalRestController {
         this.animalService = animalService;
     }
 
-    @GetMapping("zoo")
+    @GetMapping("/animals")
     public AnimalListResponse list(){
         return new AnimalListResponse(animalService.getAllAnimals());
     }
 
-    @PostMapping("zoo")
+    @PostMapping("/animals")
     public void add(@Valid @RequestBody AnimalRequest animalRequest){
         animalService.addAnimal(animalRequest.toAnimalDto());
     }
