@@ -14,7 +14,21 @@ public class AnimalDto {
     boolean dangerous;
 
     public static AnimalDto fromAnimal(AnimalRequest animalRequest){
-        return new AnimalDto(animalRequest.getId(), animalRequest.getSpecies(), animalRequest.getName(), animalRequest.getDateOfBirth(), animalRequest.getWeightKilos(), animalRequest.isDangerous());
+        return new AnimalDto(animalRequest.getId(),
+                animalRequest.getSpecies(),
+                animalRequest.getName(),
+                animalRequest.getDateOfBirth(),
+                animalRequest.getWeightKilos(),
+                animalRequest.isDangerous());
     }
 
+    public static AnimalDto fromEntity(AnimalEntity animalEntity){
+        return new AnimalDto(
+                animalEntity.getId().toString(),
+                animalEntity.getSpecies(),
+                animalEntity.getName(),
+                animalEntity.getDateOfBirth(),
+                animalEntity.getWeightKilos(),
+                animalEntity.isDangerous());
+    }
 }

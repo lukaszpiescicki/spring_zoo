@@ -8,11 +8,17 @@ import java.util.stream.Collectors;
 @Service
 public class AnimalDomainServiceImpl implements AnimalDomainService{
 
+    private final AnimalRepository animalRepository;
 
+    public AnimalDomainServiceImpl(AnimalRepository animalRepository) {
+        this.animalRepository = animalRepository;
+    }
 
     @Override
     public List<AnimalDto> getAllAnimals() {
-        throw new RuntimeException("Not implemented");
+        return animalRepository.findAll().stream()
+                .map(AnimalDto::fromEntity)
+                .collect(Collectors.toList());
     }
 
     @Override
