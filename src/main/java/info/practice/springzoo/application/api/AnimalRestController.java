@@ -20,7 +20,7 @@ public class AnimalRestController {
     }
 
     @GetMapping("/animals")
-    public AnimalListResponse list(){
+    public ResponseEntity<AnimalListResponse> list(){
         return ResponseEntity.ok(AnimalListResponse.from(animalService.getAllAnimals()));
     }
 
